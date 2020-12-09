@@ -1,0 +1,129 @@
+# src/Blogger/BlogBundle/Resources/config/routing.yml
+blogger_about:
+    path: /about
+    defaults: { _controller: BloggerBlogBundle:Page:about }
+    requirements:
+        _methods: GET
+
+blogger_index:
+    path:         /
+    defaults: { _controller: BloggerBlogBundle:Page:index}
+
+blogger_home:
+    path:         /home
+    defaults: { _controller: BloggerBlogBundle:Page:home }
+
+blogger_contact:
+    path: /contact
+    defaults: { _controller: BloggerBlogBundle:Page:contact }
+
+
+
+
+
+
+
+
+
+blogger_blog:
+    path: /blog
+    defaults: { _controller: BloggerBlogBundle:Blog:create }
+    requirements:
+        _methods: GET
+
+blogger_blog_view:
+    path:     /view/{id}
+    defaults: { _controller: BloggerBlogBundle:Blog:view }
+    requirements:
+        id: \d+
+
+blogger_blog_create:
+    path:     /create
+    defaults: { _controller: BloggerBlogBundle:Blog:create }
+
+blogger_blog_edit:
+    path:     /edit/{id}
+    defaults: { _controller: BloggerBlogBundle:Blog:edit }
+    requirements:
+        id: \d+
+
+blogger_blog_delete:
+    path:     /delete/{id}
+    defaults: { _controller: BloggerBlogBundle:Blog:delete }
+    requirements:
+        id: \d+
+
+
+
+
+
+
+
+
+blogger_book:
+    path: /book
+    defaults: { _controller: BloggerBlogBundle:Book:create }
+    requirements:
+        _methods: GET
+
+blogger_book_view:
+    path:     /bookview/{id}
+    defaults: { _controller: BloggerBlogBundle:Book:view }
+    requirements:
+        id: \d+
+
+blogger_book_create:
+    path:     /bookcreate
+    defaults: { _controller: BloggerBlogBundle:Book:create }
+
+blogger_book_edit:
+    path:     /bookedit/{id}
+    defaults: { _controller: BloggerBlogBundle:Book:edit }
+    requirements:
+        id: \d+
+
+blogger_book_delete:
+    path:     /bookdelete/{id}
+    defaults: { _controller: BloggerBlogBundle:Book:delete }
+    requirements:
+        id: \d+
+
+
+
+
+
+
+
+
+
+
+
+
+
+blogger_bookreview:
+    path: /bookreview
+    defaults: { _controller: BloggerBlogBundle:BookReview:create }
+    requirements:
+        _methods: GET
+
+blogger_bookreview_view:
+    path:     /bookreviewview/{id}
+    defaults: { _controller: BloggerBlogBundle:BookReview:view }
+    requirements:
+        id: \d+
+
+blogger_bookreview_create:
+    path:     /bookreviewcreate
+    defaults: { _controller: BloggerBlogBundle:BookReview:create }
+
+blogger_bookreview_edit:
+    path:     /bookreviewedit/{id}
+    defaults: { _controller: BloggerBlogBundle:BookReview:edit }
+    requirements:
+        id: \d+
+
+blogger_bookreview_delete:
+    path:     /bookreviewdelete/{id}
+    defaults: { _controller: BloggerBlogBundle:BookReview:delete }
+    requirements:
+        id: \d+

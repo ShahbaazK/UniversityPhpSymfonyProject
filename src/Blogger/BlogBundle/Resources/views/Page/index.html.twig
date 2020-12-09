@@ -1,0 +1,17 @@
+{# src/Blogger/BlogBundle/Resources/views/Page/index.html.twig #}
+{% extends 'BloggerBlogBundle::layout.html.twig' %}
+{% block body %}
+    {#{% if is_granted('ROLE_USER') %}#}
+    Blog homepage
+    {% for mybook in book %}
+        <article>
+            <h2><a href="{{ path('blogger_book_view',{id : mybook.id}) }}">
+                    {{ mybook.title | title }}</a></h2>
+
+            {#<p><img src="{{ asset('uploads/images/' ~ book.image )}}" width="150" height="150"></p>#}
+
+
+        </article>
+    {% endfor %}
+{% endblock %}
+

@@ -1,0 +1,7 @@
+{% extends 'BloggerBlogBundle::layout.html.twig' %}
+{% block title %}Edit a blog bookreview{% endblock %}
+{% block body %}
+    <h1>Edit a blog bookreview</h1>
+    {{ form(form) }}
+    <p><a href="{{ path('blogger_bookreview_delete',{id: bookreview.id}) }}">delete</a></p>
+{% endblock %}

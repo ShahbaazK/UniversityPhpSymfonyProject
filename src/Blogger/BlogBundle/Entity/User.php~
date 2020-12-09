@@ -1,0 +1,110 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: stc508
+ * Date: 04/01/19
+ * Time: 17:27
+ */
+
+namespace Blogger\BlogBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use FOS\UserBundle\Model\User as BaseUser;
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="workshopUsers")
+ */
+class User extends BaseUser
+{
+    /**
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     * @ORM\Column(type="integer")
+     */
+    protected $id;
+
+    /**
+     * @ORM\Column(type="string")
+     */
+    private $firstName;
+
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    public function getFirstName()
+    {
+        return $this->firstName;
+    }
+
+    public function setFirstName($firstName)
+    {
+        $this->firstName = $firstName;
+    }
+
+    /**
+     * Overridden so that username is now optional
+     *
+     * @param string $email
+     * @return User
+     */
+    public function setEmail($email)
+    {
+        $this->setUsername($email);
+        return parent::setEmail($email);
+    }
+
+    /**
+     * @var \Doctrine\Common\Collections\ArrayCollection
+     * @ORM\OneToMany(targetEntity="Blogger\BlogBundle\Entity\Entry",mappedBy="author")
+     */
+    protected $entries;
+
+
+    /**
+     * Add entry.
+     *
+     * @param \Blogger\BlogBundle\Entity\Entry $entry
+     *
+     * @return User
+     */
+    public function addEntry(\Blogger\BlogBundle\Entity\Entry $entry)
+    {
+        $this->entries[] = $entry;
+
+        return $this;
+    }
+
+    /**
+     * Remove entry.
+     *
+     * @param \Blogger\BlogBundle\Entity\Entry $entry
+     *
+     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
+     */
+    public function removeEntry(\Blogger\BlogBundle\Entity\Entry $entry)
+    {
+        return $this->entries->removeElement($entry);
+    }
+
+    /**
+     * Get entries.
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getEntries()
+    {
+        return $this->entries;
+    }
+
+    public function __construct()
+    {
+        parent::__construct();
+        $this->entries = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+}

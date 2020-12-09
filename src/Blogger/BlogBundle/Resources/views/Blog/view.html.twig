@@ -1,0 +1,14 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}BloggerBlogBundle:Blog:view{% endblock %}
+
+{% block body %}
+<h1>Welcome to the Blog:view page</h1>
+    <p>{{ entry.blog|nl2br }}</p>
+    <p><small>Created by {{ entry.author }} at
+            {{ entry.timestamp|date('H:i d/m/y') }}
+        </small>
+        <a href="{{ path('blog_edit',{'id':entry.id}) }}">edit</a>
+    </p>
+
+{% endblock %}

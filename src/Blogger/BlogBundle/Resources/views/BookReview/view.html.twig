@@ -1,0 +1,20 @@
+{# src/Blogger/BlogBundle/Resources/views/Blog/view.html.twig #}
+{% extends 'BloggerBlogBundle::layout.html.twig' %}
+{#{% block title %}{{ bookreview.title }}{% endblock %}#}
+
+{% block body %}
+
+<div class="row">
+    <div class="col-lg-12">
+        <h2 class="my-4">Books Selected</h2>
+    </div>
+    <div class="col-lg-4 col-sm-6 text-center mb-4">
+        <img class="rounded-circle img-fluid d-block mx-auto" src="http://placehold.it/200x200" alt="">
+    <h1>{{ bookreview.title }}</h1>
+    <p>{{ bookreview.blog|nl2br }}</p>
+    <p><small>Created by {{ bookreview.author }} at
+            {{ bookreview.timestamp|date('H:i d/m/y') }}
+        </small>
+        <a href="{{ path('blogger_bookreview_edit',{'id':bookreview.id}) }}">edit</a>
+    </p>
+{% endblock %}
