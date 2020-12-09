@@ -1,0 +1,47 @@
+{% trans_default_domain 'FOSUserBundle' %}
+<h1>Register!</h1>
+{{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
+
+    {#<div class="form-group row">#}
+        {#<label for="inputEmail" class="col-sm-2 col-form-label">Email</label>#}
+        {#<div class="col-sm-10">#}
+            {#<input type="email" class="form-control" id="inputEmail" name="email" placeholder=" Enter Email">#}
+            {#<?php echo $errEmail;?>#}
+        {#</div>#}
+        {#<div class="form-group row">#}
+            {#<label for="inputUser" class="col-sm-2 col-form-label">First Name</label>#}
+            {#<div class="col-sm-10">#}
+                {#<input type="text" class="form-control" id="inputFirstname" name="firstname" placeholder="Enter First Name">#}
+                {#<?php echo $errFirstName; ?>#}
+            {#</div>#}
+        {#</div>#}
+        {#<div class="form-group row">#}
+            {#<label for="inputPlainpassword" class="col-sm-2 col-form-label">Password</label>#}
+            {#<div class="col-sm-10">#}
+                {#<input type="password" class="form-control" id="inputPassword" name="password" placeholder="Enter Password">#}
+                {#<?php echo $errPass; ?>#}
+            {#</div>#}
+        {#</div>#}
+        {#<div class="form-group row">#}
+            {#<label for="inputPlainpassword2" class="col-sm-2 col-form-label">Repeat Password</label>#}
+            {#<div class="col-sm-10">#}
+                {#<input type="password" class="form-control" id="inputPassword" name="repeatpassword" placeholder="Repeat Password">#}
+                {#<?php echo $errPass; ?>#}
+            {#</div>#}
+             {#</div>#}
+        {#<div class="form-group row">#}
+            {#<div class="offset-sm-2 col-sm-10">#}
+                {#<input type="submit" value="{{ 'registration.submit'|trans }}" name="submit" class="btn btn-primary"/>#}
+            {#</div>#}
+        {#</div>#}
+
+
+        {{ form_row(form.email) }}
+        {{ form_row(form.firstName) }}
+        {{ form_row(form.plainPassword) }}
+
+
+<div>
+    <input class="btn btn-primary" type="submit" value="{{ 'registration.submit'|trans }}" />
+</div>
+{{ form_end(form) }}
